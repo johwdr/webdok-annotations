@@ -3,20 +3,21 @@ import path from 'path';
 
 module.exports = {
 	entry: {
-        dilemmaslider: path.resolve('./temp/test/main.js')
+        main: path.resolve('./src/scripts/main.js')
 	},
 	devtool:'source-map',
     module:{
         rules:[
             {
-                test:/\.scss$/,
-                loaders:['style-loader', 'css-loader?sourceMap', 'sass-loader?sourceMap']
+                test: /\.scss$/,
+                loaders:['style-loader', 'css-loader?sourceMap', 'sass-loader?sourceMap'],
+                include: [path.resolve(__dirname, 'src/styles')]
             }
         ]
     },
 	output: {
-		path: path.join(__dirname, 'dev'),
-		publicPath: '../dev/',
+		path: path.join(__dirname, 'temp'),
+		publicPath: 'temp',
 		filename: 'dr-[name].test.bundle.js',
 		chunkFilename: '[id].test.bundle.js'
 	},
@@ -24,6 +25,6 @@ module.exports = {
         extensions: [ '.js', '.jsx' ]
     },
 	plugins:[
-		// new ExtractTextPlugin({filename:'styles.css'})
+		//new ExtractTextPlugin({filename:'styles.css'})
 	]
 };

@@ -2,7 +2,7 @@
   "name": "detektor-myth-buster",
   "version": "0.0.1",
   "description": "myth busting feature",
-  "main": "src/js/main.js",
+  "main": "./src/scripts/main.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -16,6 +16,7 @@
     "gsap": "^1.19.1",
     "gulp": "^3.9.1",
     "gulp-babel": "^6.1.2",
+    "gulp-inject": "^4.2.0",
     "gulp-remove-logging": "^1.2.0",
     "gulp-util": "^3.0.7",
     "node-sass": "^4.5.0",

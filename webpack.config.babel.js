@@ -1,4 +1,5 @@
 import path from 'path';
+/*
 
 module.exports = {
 	entry: {
@@ -18,4 +19,4 @@ module.exports = {
 		filename: 'dr-[name].bundle.js',
 		chunkFilename: '[id].bundle.js'
 	}
-};
+};*/
