@@ -20,6 +20,33 @@ gulp.task('build', ['index:dist'], () => {
 
 });
 
+gulp.task('stage', ['build'], () => {
+
+  const pathArray = __dirname.split('/');
+  const folder = pathArray[pathArray.length -1];
+
+  return gulp.src('dist/**/*')
+  .pipe(gulp.dest('/Volumes/johw_test/' + folder + ''));
+
+})
+
+
+gulp.task('deploy', ['build'], () => {
+
+  const pathArray = __dirname.split('/');
+  const folder = pathArray[pathArray.length -1];
+  const path = '/Volumes/johw_test/';
+  const msg = 'Vil du deploye "' + folder + '" til produktion i mappen ' + path + '?'
+
+  return gulp.src('dist/**/*')
+  .pipe(prompt.confirm({
+        message: msg,
+        default: true
+  }))
+  .pipe(gulp.dest(path + folder + ''));
+
+})
+
 
 gulp.task('index:dev', ['webpack:dev'], function () {
   var target = gulp.src('src/index.html');
