@@ -1,2 +1,8 @@
-# detektor-myth-buster
-Interaktiv mini quiz widget
+# Webpack boilerplate
+
+Udgangspunkt for redaktionelle projekter med
+
+- gulp
+- babel
+- webpack
+- sass
