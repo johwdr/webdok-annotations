@@ -3,6 +3,5 @@ node_modules
 # Files
 .DS_Store
 # Output directories
-dev
-prod
+dist
 temp

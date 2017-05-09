@@ -12,7 +12,16 @@ gulp.task('default', ['webpack-dev-server'], () => {
 
 });
 
-gulp.task('index', ['webpack:dev'], function () {
+gulp.task('serve', ['webpack-dev-server'], () => {
+
+});
+
+gulp.task('build', ['index:dist'], () => {
+
+});
+
+
+gulp.task('index:dev', ['webpack:dev'], function () {
   var target = gulp.src('src/index.html');
   var sources = gulp.src(['**/*.js'], {read: false, cwd: __dirname + '/temp'});
   return target.pipe(inject(sources))
@@ -30,9 +39,7 @@ gulp.task('babel:dev', () => {
 });
 
 gulp.task('webpack:dev', ['babel:dev'], (callback) =>{
-    let myConfig = Object.create(webpackTestConfig);
-
-
+    const myConfig = Object.create(webpackTestConfig);
 
     webpack(myConfig, (err, stats)=>{
         if(err) throw new gutil.PluginError('webpack', err);
@@ -45,24 +52,31 @@ gulp.task('webpack:dev', ['babel:dev'], (callback) =>{
     })
 });
 
-gulp.task('babel', () => {
+gulp.task('index:dist', ['webpack:dist'], function () {
+  var target = gulp.src('src/index.html');
+  var sources = gulp.src(['**/*.js'], {read: false, cwd: __dirname + '/dist'});
+  return target.pipe(inject(sources))
+    .pipe(gulp.dest('dist'));
+});
+
+gulp.task('babel:dist', () => {
     gulp.src('src/*.scss')
-        .pipe(gulp.dest('temp/prod'));
+        .pipe(gulp.dest('dist'));
 
     return gulp.src('src/*.js')
         .pipe(babel())
         .pipe(removeLog())
-        .pipe(gulp.dest('temp/prod'));
+        .pipe(gulp.dest('dist'));
 });
 
-gulp.task('webpack', ['babel'], (callback) =>{
-    let myConfig = Object.create(webpackConfig);
+gulp.task('webpack:dist', ['babel:dist'], (callback) =>{
+    const myConfig = Object.create(webpackConfig);
     myConfig.plugins = [
         // new webpack.optimize.DedupePlugin(),
-        new webpack.optimize.UglifyJsPlugin()
+        //new webpack.optimize.UglifyJsPlugin()
     ];
 
-    webpack(myConfig, (err, stats)=>{
+    return webpack(myConfig, (err, stats)=>{
         if(err) throw new gutil.PluginError('webpack', err);
         gutil.log('[webpack]', stats.toString({
             colors:true,
@@ -72,9 +86,9 @@ gulp.task('webpack', ['babel'], (callback) =>{
     })
 });
 
-gulp.task('webpack-dev-server', ['index'], function(callback) {
+gulp.task('webpack-dev-server', ['index:dev'], function(callback) {
 
-    let myConfig = Object.create(webpackTestConfig);
+    const myConfig = Object.create(webpackTestConfig);
 
     // Start a webpack-dev-server
     new WebpackDevServer(webpack(myConfig), {
