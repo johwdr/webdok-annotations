@@ -1,10 +1,7 @@
-body {
-  font-size: 16px;
-  .content {
-    margin: 50px auto;
-    font-size: 40px;
-    color: #F00;
-    width: 400px;
-    text-align: center;
+[widget-wrapper] {
+  line-height: normal;
+
+  button {
+    height: auto;
   }
 }
