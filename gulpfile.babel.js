@@ -26,7 +26,7 @@ gulp.task('stage', ['build'], () => {
   const folder = pathArray[pathArray.length -1];
 
   return gulp.src('dist/**/*')
-  .pipe(gulp.dest('/Volumes/johw_test/' + folder + ''));
+  .pipe(gulp.dest('/Volumes/staging/' + folder + ''));
 
 })
 
@@ -35,7 +35,7 @@ gulp.task('deploy', ['build'], () => {
 
   const pathArray = __dirname.split('/');
   const folder = pathArray[pathArray.length -1];
-  const path = '/Volumes/johw_test/';
+  const path = '/Volumes/2017/';
   const msg = 'Vil du deploye "' + folder + '" til produktion i mappen ' + path + '?'
 
   return gulp.src('dist/**/*')
