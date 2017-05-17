@@ -8,7 +8,7 @@ import webpackConfig from './webpack.config.babel';
 import webpackTestConfig from './webpack.test.config.babel';
 import WebpackDevServer from 'webpack-dev-server';
 
-gulp.task('default', ['webpack-dev-server'], () => {
+gulp.task('default', ['watch:images:dev','webpack-dev-server'], () => {
 
 });
 
@@ -30,6 +30,19 @@ gulp.task('stage', ['build'], () => {
 
 })
 
+gulp.task('images:dev', () => {
+  gulp.src('src/images/*')
+  .pipe(gulp.dest('temp/images'))
+})
+
+gulp.task('images:dist', () => {
+  gulp.src('src/images/*')
+  .pipe(gulp.dest('dist/images'))
+})
+
+gulp.task('watch:images:dev', () => {
+    return gulp.watch(['src/images/**'], ['images:dev']);
+});
 
 gulp.task('deploy', ['build'], () => {
 
