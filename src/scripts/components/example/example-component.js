@@ -13,11 +13,15 @@ export default class Example {
     build() {
 
 
-        const container = select('#starter');
+        let container = select('#starter');
 
-        const content = create('div', container, 'content');
+        let content = create('div', container, 'content');
 
-        content.innerHTML = 'Så kører det!';
+        content.innerHTML = 'Så kører det i smør igen!';
+
+        content.addEventListener('click', () => {
+        	console.log('you clicked me!');
+        })
 
 
 
