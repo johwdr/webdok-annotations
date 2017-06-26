@@ -16,6 +16,7 @@
     "gulp": "^3.9.1",
     "gulp-babel": "^6.1.2",
     "gulp-inject": "^4.2.0",
+    "gulp-prompt": "^0.2.0",
     "gulp-remove-logging": "^1.2.0",
     "gulp-util": "^3.0.7",
     "node-sass": "^4.5.0",
