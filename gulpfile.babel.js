@@ -3,6 +3,7 @@ import babel from 'gulp-babel';
 import gutil from 'gulp-util';
 import removeLog from 'gulp-remove-logging';
 import inject from 'gulp-inject';
+import prompt from 'gulp-prompt';
 import webpack from 'webpack';
 import webpackConfig from './webpack.config.babel';
 import webpackDevConfig from './webpack.dev.config.babel';
