@@ -9,7 +9,7 @@ import webpackConfig from './webpack.config.babel';
 import webpackDevConfig from './webpack.dev.config.babel';
 import WebpackDevServer from 'webpack-dev-server';
 
-gulp.task('default', ['watch:assets:dev','webpack-dev-server'], () => {
+gulp.task('default', ['watch'], () => {
 
 });
 
@@ -147,5 +147,7 @@ gulp.task('webpack-dev-server', ['index:dev'], function(callback) {
 });
 
 gulp.task('watch', () => {
+    gulp.start('webpack-dev-server');
+    gulp.watch(['src/assets/**'], ['assets:dev']);
     return gulp.watch(['src/**'], ['webpack-dev-server']);
 });
