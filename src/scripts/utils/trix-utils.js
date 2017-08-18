@@ -75,5 +75,23 @@ function addThousandsSeperators(x) {
         parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ".");
         return parts.join(",");
     }
+function easeInOutSine(t, b, c, d){
+    // t: current time, b: begInnIng value, c: change In value, d: duration
+    return -c/2 * (Math.cos(Math.PI*t/d) - 1) + b;
+}
+function easeOutIn(t, b, c, d){
+    // t: current time, b: begInnIng value, c: change In value, d: duration
+    if ((t /= d/2)<1) return c/2 * (Math.sin(Math.PI*t/2) ) + b;
+    return -c/2 * (Math.cos(Math.PI*--t/2)-2) + b;      
+}
+function easeInSine(t, b, c, d){
+    // t: current time, b: begInnIng value, c: change In value, d: duration
+    return -c * Math.cos(t/d * (Math.PI/2)) + c + b;
+}
+function easeOutSine(t, b, c, d){
+    // t: current time, b: begInnIng value, c: change In value, d: duration
+    return c * Math.sin(t/d * (Math.PI/2)) + b;
+}
 
-export { create, select, selectAll, linearInterpolate, normalize, clamp, fetchFile, isTouchSupported, prepath, isIE, addThousandsSeperators }
+
+export { create, select, selectAll, linearInterpolate, normalize, clamp, fetchFile, isTouchSupported, prepath, isIE, addThousandsSeperators, easeInOutSine, easeOutIn, easeInSine, easeOutSine}
