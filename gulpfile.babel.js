@@ -13,40 +13,16 @@ gulp.task('default', ['watch'], () => {
 
 });
 
-gulp.task('serve', ['webpack-dev-server'], () => {
-
-});
-
-gulp.task('build', ['assets:dist', 'index:dist'], () => {
-
-});
-
-gulp.task('stage', ['build'], () => {
+gulp.task('stage', ['assets:dev', 'index:dev'], () => {
 
   const pathArray = __dirname.split('/');
   const folder = pathArray[pathArray.length -1];
 
-  return gulp.src('dist/**/*')
-  .pipe(gulp.dest('/Volumes/visuel/staging/' + folder + ''));
+  return gulp.src('dev/**/*')
+  .pipe(gulp.dest('/Volumes/staging/' + folder + ''));
 
 })
-
-gulp.task('assets:dev', () => {
-  gulp.src('src/assets/**/*')
-  .pipe(gulp.dest('dev/assets'))
-})
-
-gulp.task('assets:dist', () => {
-  gulp.src('src/assets/**/*')
-  .pipe(gulp.dest('dist/assets'))
-
-})
-
-gulp.task('watch:assets:dev', () => {
-    return gulp.watch(['src/assets/**'], ['assets:dev']);
-});
-
-gulp.task('deploy', ['build'], () => {
+gulp.task('deploy', ['assets:dist', 'index:dist'], () => {
 
   const pathArray = __dirname.split('/');
   const folder = pathArray[pathArray.length -1];
@@ -62,22 +38,18 @@ gulp.task('deploy', ['build'], () => {
 
 })
 
+// DEV: ------------------------------------------------------
+
+gulp.task('assets:dev', () => {
+  gulp.src('src/assets/**/*')
+  .pipe(gulp.dest('dev/assets'))
+})
 
 gulp.task('index:dev', ['webpack:dev'], function () {
   var target = gulp.src('src/index.html');
   var sources = gulp.src(['**/*.js'], {read: false, cwd: __dirname + '/dev'});
   return target.pipe(inject(sources, {addRootSlash:false}))
     .pipe(gulp.dest('dev'));
-});
-
-
-gulp.task('babel:dev', () => {
-    gulp.src('src/**/*.scss')
-        .pipe(gulp.dest('temp'));
-
-    return gulp.src('src/**/*.js')
-        .pipe(babel())
-        .pipe(gulp.dest('temp'));
 });
 
 gulp.task('webpack:dev', ['babel:dev'], (callback) =>{
@@ -94,11 +66,45 @@ gulp.task('webpack:dev', ['babel:dev'], (callback) =>{
     })
 });
 
+gulp.task('babel:dev', () => {
+    gulp.src('src/**/*.scss')
+        .pipe(gulp.dest('temp'));
+
+    return gulp.src('src/**/*.js')
+        .pipe(babel())
+        .pipe(gulp.dest('temp'));
+});
+
+// DIST: ------------------------------------------------------
+
+gulp.task('assets:dist', () => {
+  gulp.src('src/assets/**/*')
+  .pipe(gulp.dest('dist/assets'))
+
+})
+
 gulp.task('index:dist', ['webpack:dist'], function () {
   var target = gulp.src('src/index.html');
   var sources = gulp.src(['**/*.js'], {read: false, cwd: __dirname + '/dist'});
   return target.pipe(inject(sources, {addRootSlash:false}))
     .pipe(gulp.dest('dist'));
+});
+
+gulp.task('webpack:dist', ['babel:dist'], (callback) =>{
+    const myConfig = Object.create(webpackConfig);
+    myConfig.plugins = [
+        // new webpack.optimize.DedupePlugin(),
+        new webpack.optimize.UglifyJsPlugin()
+    ];
+
+    return webpack(myConfig, (err, stats)=>{
+        if(err) throw new gutil.PluginError('webpack', err);
+        gutil.log('[webpack]', stats.toString({
+            colors:true,
+            progress:true
+        }));
+        callback();
+    })
 });
 
 gulp.task('babel:dist', () => {
@@ -111,22 +117,7 @@ gulp.task('babel:dist', () => {
         .pipe(gulp.dest('temp'));
 });
 
-gulp.task('webpack:dist', ['babel:dist'], (callback) =>{
-    const myConfig = Object.create(webpackConfig);
-    myConfig.plugins = [
-        // new webpack.optimize.DedupePlugin(),
-        //new webpack.optimize.UglifyJsPlugin()
-    ];
-
-    return webpack(myConfig, (err, stats)=>{
-        if(err) throw new gutil.PluginError('webpack', err);
-        gutil.log('[webpack]', stats.toString({
-            colors:true,
-            progress:true
-        }));
-        callback();
-    })
-});
+// WATCH: ------------------------------------------------------
 
 gulp.task('webpack-dev-server', ['index:dev'], function(callback) {
 
