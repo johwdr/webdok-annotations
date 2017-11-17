@@ -1,7 +1,8 @@
 import gulp from 'gulp';
 import babel from 'gulp-babel';
 import gutil from 'gulp-util';
-import removeLog from 'gulp-remove-logging';
+// import removeLog from 'gulp-remove-logging';
+import stripDebug from 'gulp-strip-debug';
 import inject from 'gulp-inject';
 import prompt from 'gulp-prompt';
 import webpack from 'webpack';
@@ -113,7 +114,7 @@ gulp.task('babel:dist', () => {
 
     return gulp.src('src/**/*.js')
         .pipe(babel())
-        .pipe(removeLog())
+        .pipe(stripDebug())
         .pipe(gulp.dest('temp'));
 });
 
