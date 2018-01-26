@@ -1,6 +1,6 @@
 'use strict';
 
-import {create, select} from '../../utils/trix-utils';
+import {create, select, fetchFile} from '../../utils/trix-utils';
 
 
 
@@ -28,7 +28,10 @@ export default class Example {
         	console.log('you clicked me!');
         })
 
-
+        let path = 'https://www.dr.dk/tjenester/visuel/staging/drn-webpack-boilerplate/assets/test/af/nedarvning/test.txt'
+        fetchFile(path, (data)=>{
+            console.log('got it: ', data);
+        })
 
     }
 
