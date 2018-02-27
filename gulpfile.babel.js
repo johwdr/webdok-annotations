@@ -2,6 +2,7 @@ import gulp from 'gulp';
 import babel from 'gulp-babel';
 import gutil from 'gulp-util';
 // import removeLog from 'gulp-remove-logging';
+import clean from 'gulp-clean';
 import stripDebug from 'gulp-strip-debug';
 import inject from 'gulp-inject';
 import prompt from 'gulp-prompt';
@@ -10,24 +11,28 @@ import webpackConfig from './webpack.config.babel';
 import webpackDevConfig from './webpack.dev.config.babel';
 import WebpackDevServer from 'webpack-dev-server';
 
+
+const pathArray = __dirname.split('/');
+const folder = pathArray[pathArray.length -1];
+
 gulp.task('default', ['watch'], () => {
 
 });
 
-gulp.task('stage', ['assets:dev', 'index:dev'], () => {
+gulp.task('stage', ['stage:clean','assets:dev', 'index:dev'], () => {
 
-  const pathArray = __dirname.split('/');
-  const folder = pathArray[pathArray.length -1];
+//   const pathArray = __dirname.split('/');
+//   const folder = pathArray[pathArray.length -1];
 
   return gulp.src('dev/**/*')
   .pipe(gulp.dest('/Volumes/staging/' + folder + ''));
 
 })
-gulp.task('deploy', ['assets:dist', 'index:dist'], () => {
+gulp.task('deploy', ['dist:clean','assets:dist', 'index:dist'], () => {
 
-  const pathArray = __dirname.split('/');
-  const folder = pathArray[pathArray.length -1];
-  const path = '/Volumes/2017/';
+//   const pathArray = __dirname.split('/');
+//   const folder = pathArray[pathArray.length -1];
+  const path = '/Volumes/2018/';
   const msg = 'Vil du deploye "' + folder + '" til produktion i mappen ' + path + '?'
 
   return gulp.src('dist/**/*')
@@ -45,7 +50,11 @@ gulp.task('assets:dev', () => {
   gulp.src('src/assets/**/*')
   .pipe(gulp.dest('dev/assets'))
 })
-
+gulp.task('stage:clean', () =>{
+    gulp.src('/Volumes/staging/' + folder, {read:false})
+    .pipe(clean({force: true}));
+})
+   
 gulp.task('index:dev', ['webpack:dev'], function () {
   var target = gulp.src('src/index.html');
   var sources = gulp.src(['**/*.js'], {read: false, cwd: __dirname + '/dev'});
@@ -82,6 +91,10 @@ gulp.task('assets:dist', () => {
   gulp.src('src/assets/**/*')
   .pipe(gulp.dest('dist/assets'))
 
+})
+gulp.task('dist:clean', () =>{
+    gulp.src('/Volumes/2018/' + folder, {read:false})
+    .pipe(clean({force: true}));
 })
 
 gulp.task('index:dist', ['webpack:dist'], function () {
