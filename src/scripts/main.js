@@ -14,7 +14,11 @@ function init() {
 
 
 }
-document.addEventListener('DOMContentLoaded', () => {
-    init(); // Udkommenteres til launch i webdok, da vi ikke får event dér
-});
+
+
+if (document.readyState == 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+} else {
+    init();
+}
 
