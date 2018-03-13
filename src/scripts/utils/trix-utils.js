@@ -23,6 +23,23 @@ function selectAll (s, e = document){
     // Shortcut to select dom elements
     return e.querySelectorAll(s);
 }
+function selectText(element) {
+    var doc = document
+        , text = select(element)
+        , range, selection
+    ;
+    if (doc.body.createTextRange) {
+        range = document.body.createTextRange();
+        range.moveToElementText(text);
+        range.select();
+    } else if (window.getSelection) {
+        selection = window.getSelection();        
+        range = document.createRange();
+        range.selectNodeContents(text);
+        selection.removeAllRanges();
+        selection.addRange(range);
+    }
+}
 function linearInterpolate(norm, min, max){
     return (max - min) * norm + min;
 }
@@ -92,6 +109,13 @@ function easeOutSine(t, b, c, d){
     // t: current time, b: begInnIng value, c: change In value, d: duration
     return c * Math.sin(t/d * (Math.PI/2)) + b;
 }
+function throttleEvents(listener, delay) {
+    var timeout;
+    var throttledListener = function(e) {
+        if (timeout) clearTimeout(timeout);
+        timeout = setTimeout(listener, delay, e);
+    }
+    return throttledListener;
+}
 
-
-export { create, select, selectAll, linearInterpolate, normalize, clamp, fetchFile, isTouchSupported, prepath, isIE, addThousandsSeperators, easeInOutSine, easeOutIn, easeInSine, easeOutSine}
+export { create, select, selectAll, selectText, linearInterpolate, normalize, clamp, fetchFile, isTouchSupported, prepath, isIE, addThousandsSeperators, easeInOutSine, easeOutIn, easeInSine, easeOutSine, throttleEvents}
