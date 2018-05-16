@@ -1,15 +1,383 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Webpack-boiler</title>
+<html lang="da">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="pubdate" content="">
+		<meta name="robots" content="index, follow">
+		<meta name="name" content="faq-test">
+		<meta name="language" content="da-dk">
+		<meta name="copyright" content="Copyright DR. Materialet må ikke gengives uden tilladelse.">
+		<meta name="description" content="faq-test">
+		<meta name="keywords" content="dr1, dr2, dr3, drk, ultra, ramasjang, drtv, tv, p1, p2, p3, p4, p5, p6, mama, podcast, nyheder">
+		<meta name="subject" content="tv, live, radio, dr, on-demand">
+		<meta name="publisher" content="DR, DR BYEN, Emil Holms Kanal 20, DK-0999 København C, tlf.: +45 35 20 30 40">
+		<meta name="site" content="">
+		<meta name="section" content="Webfeature">
+		<meta name="urn" content="urn:dr:webfeature:faq-test" >
+		<meta property="og:type" content="website">
+		<meta property="og:title" content="faq-test">
+		<meta property="og:site_name" content="DR">
+		<meta property="og:description" content="faq-test">
+		<meta property="og:url" content="https://www.dr.dk/interaktiv/webfeature/faq-test">
+		<meta property="og:image_secure_url" content="https://www.dr.dk/tjenester/netdoks/def/logo.jpg">
+		<meta property="og:image" content="http://www.dr.dk/tjenester/netdoks/def/logo.jpg">
+		<meta property="og:image:type" content="jpg">
+		<meta property="og:locale" content="da_DK">
+		<meta name="twitter:card" content="summary">
+		<meta name="twitter:site" content="@drnyheder">
+		<meta name="twitter:creator" content="@drnyheder">
+		<meta name="twitter:title" content="faq-test">
+		<meta name="twitter:description" content="faq-test">
+		<meta name="twitter:image" content="http://www.dr.dk/tjenester/netdoks/def/logo.jpg">
+		<script>
+		  (function (win, doc) {
+		    var head = doc.head || doc.getElementsByTagName("head")[0];
+		    if ("-ms-user-select" in doc.documentElement.style && navigator.userAgent.match(/IEMobile\/10\.0/)) {
+		      var msViewportStyle = doc.createElement("style");
+		      msViewportStyle.appendChild(
+		          doc.createTextNode("@-ms-viewport{width:auto!important}")
+		      );
+		      head.appendChild(msViewportStyle);
+		    }
+		  }(window, document));
+		</script>
+		<script>
+		  !function(A,t){function e(A){var e=t.createElement("style");e.textContent=A,n.appendChild(e)}var a,n=t.getElementsByTagName("head")[0],o=!1;try{a=A.localStorage["drc-webfonts"],a&&e(a)}catch(A){}var c=A.FontFace;if(c){var s=new c("drc-wfl-woff2",'url("data:application/font-woff2;base64,d09GMgABAAAAAAIkAAoAAAAABVwAAAHcAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAABlYAgloKLEoBNgIkAxgLDgAEIAWDcgc1G7IEyB6SJAFID5YA3nAHC6h4+H7s27nP1kTyOoQkGuJWtNGIJKYznRI3VEL7IaHq985ZUuKryZKcAtJsi5eULwUybm9KzajBBhywZ5ZwoJNuwDX5C/xBjvz5DbsoNsvG1NGQiqp0NMLZ7JlnW+5MaM3HwcHheUQeiVokekHkn/FRdefvJaTp2PczN+I1Sc3k9VuX51Tb0Tqqf1deVXGdJsDOhz0/EffMOPOzHNH06pYkDDjs+P8fb/z/8n9Iq8ITzWywkP6PBMMN9L/O7vY2FNoTAkp5PpD6g1nV9WmyQnM5uPpAMHR2fe06jbfvzPriekVTQxC6lpKr43oDtRZfCATl5OVAUKykqwm9o8R/kg37cxa6eZikS7cjK4aIwoyh6jOFplhFrz2b833G3Jii9AjDUiAZ9AxZtxdEYV6imvRF0+0Nej3wu6nPZrTLh81AVcV3kmMVdQj6Qbe9qetzbuDZ7vXOlRrqooFSxCv6SfrDICA6rnHZXQPVcUHJYGcoqa3jVH7ATrjWBNYYkEqF3RFpVIl0q2JvMOJd7/TyjXHw2NyAuJpNaEbz8RTEVtCbSH7JrwQQOqwGl7sTUOtdBZIY2DKqKlvOmPvUxJaURAZZcviTT0SKHCXqzwc=") format("woff2")',{});s.load().catch(function(){}),o="loading"===s.status||"loaded"===s.status}var f=new XMLHttpRequest,d="/assets/css/007/webfonts/"+(o?"woff2":"woff")+".css";f.open("get",d,!0),f.onreadystatechange=function(){if(4===f.readyState&&(f.status>=200&&f.status<300||304===f.status)){var t=f.responseText;if(a!==t){e(t);try{A.localStorage["drc-webfonts"]=t}catch(A){}}}},a?A.addEventListener("load",function(){f.send(null)},!1):t.addEventListener("DOMContentLoaded",function(){f.send(null)},!1)}(window,document);
+		</script>
+		<link rel="canonical" href="https://www.dr.dk/interaktiv/webfeature/faq-test">
+		<link rel="dns-prefetch" href="https://www.dr.dk/asset.dr.dk">
+		<link rel="stylesheet" href="https://www.dr.dk/assets/css/007/global.css">
+		<link rel="stylesheet" href="https://www.dr.dk/webfeature/local-assets/css/local.css">
+		<title>faq-test</title>
 
-    <!-- inject:js -->
-    <!-- endinject -->
 
-</head>
-<body>
-    <div id="starter"></div>
+		<script id="ensighten-script" src="//www.dr.dk/drdk-ensighten/Bootstrap.js"></script>
 
-</body>
+		<script src="//www.dr.dk/global-navigation/topbarbundle-nonsticky.js" ></script>
+		<script>
+			window.DR = { autoload: { bannerAds: false } };
+        </script>
+        <!-- inject:js -->
+        <!-- endinject -->
+
+	</head>
+	<body data-baseUrl="/webfeature" data-article-type="Normal" class="section-interaktiv   ">
+		<div id="content">
+	<div class="zone standard-zone" itemscope itemtype="http://schema.org/Article">
+		<!-- Section styles -->
+		<style>
+			body.section-interaktiv #content .zone .hero-primary-label {
+				color: White;
+			}
+
+			body.section-interaktiv #content .zone .hero-primary-label,
+			body.section-interaktiv.timeline .article-timeline li > a.current > span {
+				background-color: Black;
+			}
+			body.section-interaktiv.timeline #content .zone .timeline-indication {
+				border-left-color: Black;
+			}
+
+
+		</style>
+
+		<button aria-label="Åbn social delings muligheder" class="share-button dr-ico2-share-large">
+			<span>Del</span>
+		</button>
+
+		<div id="share-container" class="share-options hide">
+			<div class="col-md-12 wrap">
+				<div class="dr-icon-close close"></div>
+				<div class="col-md-4">
+					<a class="share-btn share-btn-option-facebook" href="https://www.facebook.com/dialog/feed?_path=feed&app_id=135526786459028&client_id=135526786459028&redirect_uri=https%3A%2F%2Fwww.dr.dk%2Finteraktiv%2Fwebfeature%2Ffaq-test&display=page&link=https%3A%2F%2Fwww.dr.dk%2Finteraktiv%2Fwebfeature%2Ffaq-test&picture=http://www.dr.dk/tjenester/netdoks/def/logo.jpg&name=faq-test&description=faq-test&caption=DR" rel="nofollow" aria-role="button" target="_blank" onclick="ga('send','_trackEvent', 'Social', 'click', 'facebook https://www.dr.dk/interaktiv/webfeature/faq-test');">
+						<span class="dr-icon-facebook-medium-boxed"></span>
+						<span class="button-text">Facebook</span>
+					</a>
+				</div>
+				<div class="col-md-4">
+					<a class="share-btn share-btn-option-twitter" href="http://twitter.com/intent/tweet?text=faq-test&url=https%3A%2F%2Fwww.dr.dk%2Finteraktiv%2Fwebfeature%2Ffaq-test&text=faq-test"  rel="nofollow" aria-role="button" target="_blank" onclick="ga('send','_trackEvent', 'Social', 'click', 'twitter https://www.dr.dk/interaktiv/webfeature/faq-test');">
+						<span class="dr-icon-twitter-medium-boxed"></span>
+						<span class="button-text">Twitter</span>
+					</a>
+				</div>
+				<div class="col-md-4">
+					<a class="share-btn share-btn-option-email" href="mailto:?body=faq-test%0d%0ahttps%3A%2F%2Fwww.dr.dk%2Finteraktiv%2Fwebfeature%2Ffaq-test&subject=faq-test" onclick="ga('send','_trackEvent', 'Social', 'click', 'mail https://www.dr.dk/interaktiv/webfeature/faq-test');">
+						<span class="dr-icon-mail-medium-boxed"></span>
+						<span class="button-text">Email</span>
+					</a>
+				</div>
+				<div class="col-md-12 hidden-xs row-email">
+					<input type="text" value="https://www.dr.dk/interaktiv/webfeature/faq-test" class="permalink">
+				</div>
+			</div>
+		</div>
+
+
+			<div class="component hero-component container-fluid" data-component-type="hero-component" data-component-id="0">
+				<style data-component-id="0">
+
+					#content .zone .component[data-component-id="0"] .color-primary {
+						color: white;
+						border-color: white;
+					}
+
+					#content .zone .component[data-component-id="0"] .color-secondary {
+						color: white;
+						border-color: white;
+					}
+
+
+
+					#content .zone .component[data-component-id="0"] .color-b-primary,
+					#content .zone .component[data-component-id="0"].color-b-primary {
+						background-color: white;
+					}
+
+					#content .zone .component[data-component-id="0"] .color-b-secondary,
+					#content .zone .component[data-component-id="0"].color-b-secondary {
+						background-color: white;
+					}
+
+
+
+				</style>
+				<div class="container-fluid full-viewport-height">
+					<div class="row">
+
+						<div class="col-md-12 ">
+
+							<div class="header">
+								<h1 class="color-primary inline-edit" data-inline-edit-key="headline">faq-test</h1>
+
+									<h2 class="color-tertiary inline-edit" data-inline-edit-key="subHeading">Sed ut perspiciatis unde omnis iste natus error sit voluptatem.</h2>
+							</div>
+
+							<div class="hero-header-container">
+								<div class="hero-top">
+										<span class="hero-label-container">
+											<a class="hero-label hero-primary-label color-b-quaternary color-tertiary" href="//www.dr.dk/interaktiv/webfeature" title="Alle historier">Interaktiv</a>
+										</span>
+								</div>
+
+								<div class="hero-image full-viewport-height ">
+									<div class="hero-gradient-bottom"></div>
+
+												<div class="element background-image-element hidden-xs hidden-sm full-viewport-height parallax" data-url="https://www.dr.dk/tjenester/netdoks/def/169top.jpg">
+													<div class="image-wrap" data-ratio="auto" data-scale-after="crop" data-src="https://www.dr.dk/tjenester/netdoks/def/169top.jpg">
+														<noscript >
+															<img width="100%" src="https://www.dr.dk/tjenester/netdoks/def/169top.jpg">
+														</noscript>
+													</div>
+												</div>
+
+												<div class="element background-image-element hidden-md hidden-lg full-viewport-height" data-url="https://www.dr.dk/tjenester/netdoks/def/916top.jpg">
+													<div class="image-wrap" data-ratio="auto" data-scale-after="crop" data-src="https://www.dr.dk/tjenester/netdoks/def/916top.jpg">
+														<noscript >
+															<img width="100%" src="https://www.dr.dk/tjenester/netdoks/def/916top.jpg">
+														</noscript>
+													</div>
+												</div>
+								</div>
+
+								<div class="hero-header">
+									<h1 class="color-primary inline-edit" itemprop="headline" data-inline-edit-key="headline">faq-test</h1>
+									<h2 class="color-secondary inline-edit" data-inline-edit-key="subHeading">Sed ut perspiciatis unde omnis iste natus error sit voluptatem.</h2>
+
+
+
+									<div class="scroll-starter"></div>
+									<div class="scroll-hint">
+										<div class="non-touch">
+											Scroll for at læse
+										</div>
+										<div class="touch" style="display: none">
+											Swipe op for at læse
+										</div>
+									</div>
+
+								</div>
+							</div>
+						</div> <!-- END bootstrap 'col' div -->
+					</div>
+				</div>
+
+
+			</div>
+			<div class="component text-component container-fluid margin-top margin-bottom" data-component-type="text-component" data-component-id="1" id="">
+				<style data-component-id="1">
+
+
+					#content .zone .component[data-component-id="1"] .color-secondary {
+						color: black;
+						border-color: black;
+					}
+
+					#content .zone .component[data-component-id="1"] .color-tertiary {
+						color: #444;
+						border-color: #444;
+					}
+
+					#content .zone .component[data-component-id="1"] .color-quaternary {
+						color: #aaa;
+						border-color: #aaa;
+					}
+
+
+					#content .zone .component[data-component-id="1"] .color-b-secondary,
+					#content .zone .component[data-component-id="1"].color-b-secondary {
+						background-color: black;
+					}
+
+					#content .zone .component[data-component-id="1"] .color-b-tertiary,
+					#content .zone .component[data-component-id="1"].color-b-tertiary {
+						background-color: #444;
+					}
+
+					#content .zone .component[data-component-id="1"] .color-b-quaternary,
+					#content .zone .component[data-component-id="1"].color-b-quaternary {
+						background-color: #aaa;
+					}
+
+				</style>
+				<div class="container ">
+					<div class="row">
+
+						<div class="col-md-8 col-md-offset-2 ">
+
+							<div class="header">
+								<h1 class="color-primary inline-edit" data-inline-edit-key="headline">Hvem er du?</h1>
+
+									<h2 class="color-tertiary inline-edit" data-inline-edit-key="subHeading">dfgsdfgsdf</h2>
+							</div>
+
+
+
+
+
+
+
+
+									<div class="element text-element color-primary" >
+										<p class="inline-edit" data-inline-edit-key="elements.0.text" >Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.<br><br>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.<br><br>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
+									</div>
+
+									<!--
+										white-space: pre-wrap; background: hsl(30,80%,90%);font-size:18px;
+									 -->
+
+
+
+
+
+
+
+
+									<div class="element image-element hidden-xs hidden-sm none">
+										<div class="image-wrap" data-ratio="16-9" data-bg-color=""  data-scale-after="ratio" data-alt="Foto" data-src="https://www.dr.dk/tjenester/netdoks/def/169top.jpg">
+											<noscript>
+												<img width="100%" alt="Foto" src="https://www.dr.dk/tjenester/netdoks/def/169top.jpg">
+											</noscript>
+										</div>
+
+												<label class="color-secondary left inline-edit" data-inline-edit-key="elements.1.byline">Navn</label>
+									</div>
+
+										<div class="element image-element hidden-md hidden-lg none">
+											<div class="image-wrap" data-ratio="9-16" data-bg-color=""  data-scale-after="ratio" data-alt="Foto" data-src="https://www.dr.dk/tjenester/netdoks/def/916top.jpg">
+												<noscript>
+													<img width="100%" alt="Foto" src="https://www.dr.dk/tjenester/netdoks/def/916top.jpg">
+												</noscript>
+											</div>
+
+													<label class="color-secondary left">Navn</label>
+										</div>
+
+
+
+
+
+						</div> <!-- END bootstrap 'col' div -->
+					</div>
+				</div>
+
+
+			</div>
+			<div class="component video-component container-fluid margin-top margin-bottom" data-component-type="video-component" data-component-id="2" id="">
+				<style data-component-id="2">
+
+					#content .zone .component[data-component-id="2"] .color-primary {
+						color: white;
+						border-color: white;
+					}
+
+					#content .zone .component[data-component-id="2"] .color-secondary {
+						color: white;
+						border-color: white;
+					}
+
+					#content .zone .component[data-component-id="2"] .color-tertiary {
+						color: black;
+						border-color: black;
+					}
+
+					#content .zone .component[data-component-id="2"] .color-quaternary {
+						color: white;
+						border-color: white;
+					}
+
+					#content .zone .component[data-component-id="2"] .color-b-primary,
+					#content .zone .component[data-component-id="2"].color-b-primary {
+						background-color: white;
+					}
+
+					#content .zone .component[data-component-id="2"] .color-b-secondary,
+					#content .zone .component[data-component-id="2"].color-b-secondary {
+						background-color: white;
+					}
+
+					#content .zone .component[data-component-id="2"] .color-b-tertiary,
+					#content .zone .component[data-component-id="2"].color-b-tertiary {
+						background-color: black;
+					}
+
+					#content .zone .component[data-component-id="2"] .color-b-quaternary,
+					#content .zone .component[data-component-id="2"].color-b-quaternary {
+						background-color: white;
+					}
+
+				</style>
+				<div class="container ">
+					<div class="row">
+
+						<div class="col-md-8 col-md-offset-2 ">
+
+							<div class="header">
+								<h1 class="color-primary inline-edit" data-inline-edit-key="headline">Traktorfisk</h1>
+
+									<h2 class="color-tertiary inline-edit" data-inline-edit-key="subHeading">Sylteren</h2>
+							</div>
+
+							<div class="video-container">
+									<div class="element video-element   ">
+
+
+									        <div  class="dr-widget-video-player color-quaternary" wmode="opaque" data-resource="//www.dr.dk/mu/programcard/expanded?id&#x3D;hkro-lyd2" data-mobileposter=""></div>
+
+									</div>
+							</div>
+						</div> <!-- END bootstrap 'col' div -->
+					</div>
+				</div>
+
+
+			</div>
+	</div>
+</div>
+
+
+		<script async src="https://www.dr.dk/assets/js/007/global.js"></script>
+		<script async src="https://www.dr.dk/webfeature/local-assets/js/article.js"></script>
+	</body>
 </html>
+
