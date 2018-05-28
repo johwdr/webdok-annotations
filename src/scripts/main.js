@@ -1,7 +1,7 @@
 require('../styles/styles.scss');
 
 
-import Accordion from './components/accordion/accordion';
+import Example from './components/example/example-component';
 
 
 
@@ -10,14 +10,9 @@ import Accordion from './components/accordion/accordion';
 function init() {
 
 
-    if (window.location.href.indexOf('admin/edit') > -1) {
-        return;
-    }
+    const ex = new Example();
 
-    const acc = new Accordion();
 
-    console.log(acc);
-    acc.setup();
 }
 
 
