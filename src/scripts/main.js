@@ -1,30 +1,52 @@
 require('../styles/styles.scss');
 
 
-
+let activeOverlay = null;
+let currentTrigger = null;
 
 
 
 function init() {
 
-    let activeOverlay = null;
+
     const triggers = document.querySelectorAll('[data-overlay-trigger]');
     for (let n=0; n<triggers.length;n++) {
         const el = triggers[n];
         el.addEventListener('click', function(event) {
             event.preventDefault();
+
+
+            if (activeOverlay) {
+                activeOverlay.classList.remove('active')
+            }
+
             const target = event.target;
             const id = target.dataset.overlayTrigger;
-            console.dir(target);
-
             const overlay = document.getElementById(id);
-            const x = target.offsetLeft + (target.offsetWidth/2);
-            const y = target.offsetTop + (target.offsetHeight/2);
-            //overlay.classList.add('active')
-            overlay.style.transformOrigin =  x + 'px ' + y + 'px';
-            overlay.classList.add('active')
-            console.log(id);
-            console.log(overlay);
+
+            if (currentTrigger && currentTrigger != target) {
+                currentTrigger.classList.remove('active');
+                currentTrigger = null;
+            }
+
+
+            if (overlay === activeOverlay) {
+                activeOverlay = null;
+                target.classList.remove('active');
+                currentTrigger = null;
+            } else {
+
+                activeOverlay = overlay;
+                const y = target.offsetTop + target.offsetHeight;
+                overlay.style.top = y + 'px';
+                overlay.classList.toggle('active');
+                target.classList.add('active');
+                currentTrigger = target;
+            }
+
+
+
+
         });
     }
     const overlays = document.querySelectorAll('[data-overlay-contents]');
@@ -32,9 +54,7 @@ function init() {
         const el = overlays[n];
         el.addEventListener('click', function(event) {
             event.preventDefault();
-            const overlay = event.target; //.getElementById(id);
-            overlay.classList.remove('active')
-
+            el.classList.remove('active')
             console.log(overlay);
         });
     }
