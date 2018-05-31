@@ -1,5 +1,121 @@
-  #starter{
-	width:100px;
-	height:50px;
-	background: #CCCCCC;
+@font-face{
+	font-family:"gibsonLight";
+	src:url("https://www.dr.dk/assets/fonts/gibson/light/gibson-light-webfont.eot");
+	src:url("https://www.dr.dk/assets/fonts/gibson/light/gibson-light-webfont.eot?#iefix") format("embedded-opentype"),
+	url("https://www.dr.dk/assets/fonts/gibson/light/gibson-light-webfont.woff2") format("woff2"),
+	url("https://www.dr.dk/assets/fonts/gibson/light/gibson-light-webfont.woff") format("woff"),
+	url("https://www.dr.dk/assets/fonts/gibson/light/gibson-light-webfont.ttf") format("truetype"),
+	url("https://www.dr.dk/assets/fonts/gibson/light/gibson-light-webfont.svg") format("svg");
+	font-weight:normal;
+}
+@font-face{
+	font-family:"gibsonRegular";
+	src:url("https://www.dr.dk/assets/fonts/gibson/regular/gibson-regular-webfont.eot");
+	src:url("https://www.dr.dk/assets/fonts/gibson/regular/gibson-regular-webfont.eot?#iefix") format("embedded-opentype"),
+	url("https://www.dr.dk/assets/fonts/gibson/regular/gibson-regular-webfont.woff2") format("woff2"),
+	url("https://www.dr.dk/assets/fonts/gibson/regular/gibson-regular-webfont.woff") format("woff"),
+	url("https://www.dr.dk/assets/fonts/gibson/regular/gibson-regular-webfont.ttf") format("truetype"),
+	url("https://www.dr.dk/assets/fonts/gibson/regular/gibson-regular-webfont.svg") format("svg");
+	font-weight:normal;
+}
+@font-face{
+	font-family:"gibsonSemiBold";
+	src:url("https://www.dr.dk/assets/fonts/gibson/semiBold/gibson-semiBold-webfont.eot");
+	src:url("https://www.dr.dk/assets/fonts/gibson/semiBold/gibson-semiBold-webfont.eot?#iefix") format("embedded-opentype"),
+	url("https://www.dr.dk/assets/fonts/gibson/semiBold/gibson-semiBold-webfont.woff2") format("woff2"),
+	url("https://www.dr.dk/assets/fonts/gibson/semiBold/gibson-semiBold-webfont.woff") format("woff"),
+	url("https://www.dr.dk/assets/fonts/gibson/semiBold/gibson-semiBold-webfont.ttf") format("truetype"),
+	url("https://www.dr.dk/assets/fonts/gibson/semiBold/gibson-semiBold-webfont.svg") format("svg");
+	font-weight:normal
+}
+@font-face{
+	font-family:"gibsonBold";
+	src:url("https://www.dr.dk/assets/fonts/gibson/bold/gibson-bold-webfont.eot");
+	src:url("https://www.dr.dk/assets/fonts/gibson/bold/gibson-bold-webfont.eot?#iefix") format("embedded-opentype"),
+	url("https://www.dr.dk/assets/fonts/gibson/bold/gibson-bold-webfont.woff2") format("woff2"),
+	url("https://www.dr.dk/assets/fonts/gibson/bold/gibson-bold-webfont.woff") format("woff"),
+	url("https://www.dr.dk/assets/fonts/gibson/bold/gibson-bold-webfont.ttf") format("truetype"),
+	url("https://www.dr.dk/assets/fonts/gibson/bold/gibson-bold-webfont.svg") format("svg");
+	font-weight:normal;
+}
+body {
+	padding: 0px;
+	margin: 0px;
+}
+
+[data-comment-wrapper] {
+		max-width: 500px;
+		display: flex;
+		margin-bottom: 10px;
+		.comment-image-wrapper {
+			img {
+				width: 60px;
+				border-radius: 100%;
+			}
+		}
+
+		.comment-content-wrapper {
+			border-radius: 25px;
+			background: #f2f2f2;
+			margin-left: 10px;
+			padding: 20px;
+			h4 {
+				margin: 5px 0px 5px;
+				font-family: gibsonSemiBold;
+				font-size: 21px;
+			}
+			p {
+				font-size: 21px;
+				font-family: gibsonRegular;
+				margin-top: 0px;
+			}
+
+		}
+		[data-overlay-trigger] {
+			background: #000;
+			color: #fff;
+			display: inline-block;
+			text-decoration: none;
+			padding: 0 10px;
+			border-radius: 15px;
+			&::after {
+				content: '-';
+				padding-left: 10px;
+			}
+		}
+}
+[data-overlay-contents] {
+	//display: none;
+	position: fixed;
+	top: 0px;
+	width: 100vw;
+	height: 100vh;
+	background: rgba(255,255,255,0.1);
+	color: #fff;
+	padding: 40px 20px;
+	box-sizing: border-box;
+	font-family: gibsonRegular;
+	align-items: center;
+	justify-content: center;
+	transition: transform 225ms ease-in-out;
+	transform: scale(0);
+	display: flex;
+	&::before {
+		content: 'asdfasdf';
+		width: 20px;
+		height: 20px;
+		position: absolute;
+		top: 20px;
+		right: 20px;
+	}
+	&.active {
+
+		transform: scale(1);
+	}
+	.inner-overlay-wrapper {
+		background: #000;
+		border-radius: 25px;
+		max-width: 300px;
+		padding: 10px;
+	}
 }
