@@ -1,12 +1,29 @@
 require('../styles/styles.scss');
+require('intersection-observer');
 
+import IntersectionClass from './components/intersection-class/intersection-class';
+
+if (!Element.prototype.matches) {
+    Element.prototype.matches = Element.prototype.msMatchesSelector;
+}
 
 let activeOverlay = null;
 let currentTrigger = null;
 
 
-
 function init() {
+
+    initOverlays()
+    initIntersections()
+}
+
+function initIntersections() {
+    new IntersectionClass('[data-comment-wrapper]');
+
+}
+
+
+function initOverlays() {
 
 
     const triggers = document.querySelectorAll('[data-overlay-trigger]');
@@ -37,7 +54,7 @@ function init() {
             } else {
 
                 activeOverlay = overlay;
-                const y = target.offsetTop + target.offsetHeight;
+                const y = target.offsetTop + target.offsetHeight
                 overlay.style.top = y + 'px';
                 overlay.classList.toggle('active');
                 target.classList.add('active');
@@ -61,7 +78,17 @@ function init() {
 
 }
 
-
+function closest(el, selector, stopSelector) {
+    var retval = null;
+    while (el) {
+        if (el.matches(selector)) {
+            retval = el;
+            break
+        }
+        el = el.parentElement;
+    }
+    return retval;
+}
 if (document.readyState == 'loading') {
     document.addEventListener('DOMContentLoaded', init);
 } else {
