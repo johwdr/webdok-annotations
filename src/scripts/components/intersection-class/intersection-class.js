@@ -20,7 +20,7 @@ export default class IntersectionClass {
 
 
         for (let n=0; n<this.els.length; n++) {
-            const element = els[n];
+            const element = this.els[n];
             observer.observe(element);
         }
     }
